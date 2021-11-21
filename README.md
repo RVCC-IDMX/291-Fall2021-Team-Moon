@@ -1,6 +1,6 @@
 ## The Moon Phases Repo:
 
-This is a repo of where our final project is being stored. This final is all about the different phases of the moon. 
+This is a repo of where our final project is being stored. Our collective final is all about the different phases of the moon. 
 
 ## Sprite Web Address Links: 
 
