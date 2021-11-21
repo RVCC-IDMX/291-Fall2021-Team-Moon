@@ -3,15 +3,15 @@
 
 This is a repo of where our final project is being stored. This final is all about the different phases of the moon. 
 
-Sprite Web Address Links: 
+##Sprite Web Address Links: 
 
-Blue Circle Web Link: (Used to represent or show the earth while on screen)
+#Blue Circle Web Link: (Used to represent or show the earth while on screen)
 https://www.clipartmax.com/download/m2i8m2Z5d3m2N4H7_mary-our-mother-blue-circle-transparent-background/
 
-White Cirle Web Link: (Used to present the moon on the screen)
+#White Cirle Web Link: (Used to present the moon on the screen)
 https://www.citypng.com/photo/16048/download-white-circle-png 
 
-Gray Circle Web Link: (Used later on in the project to better show off the moon phases)
+#Gray Circle Web Link: (Used later on in the project to better show off the moon phases)
 https://www.pinterest.com/pin/798192733948106471/
 
 
