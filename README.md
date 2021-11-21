@@ -1,4 +1,4 @@
-## Moon Phases Repo:
+## The Moon Phases Repo:
 
 This is a repo of where our final project is being stored. This final is all about the different phases of the moon. 
 
@@ -13,4 +13,5 @@ https://www.citypng.com/photo/16048/download-white-circle-png
 Gray Circle Web Link: (Used later on in the project to better show off the moon phases)
 https://www.pinterest.com/pin/798192733948106471/
 
+Orange Circle Web Link: (Used to represent the sun on the screen)
 
