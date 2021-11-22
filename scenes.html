@@ -28,8 +28,8 @@
 
     //The App
     var app = new PIXI.Application({
-        width:640,
-        height:480,
+        width:1080,
+        height:720,
         backgroundColor: 0x000000
     });
     var stage = app.stage;
@@ -38,19 +38,7 @@
     //Add view to the document
     document.body.appendChild(app.view);
 
-    /*
-        Depending on the system or context, these can be called "scenes" "views" "pages" "panels" or all sorts of other things.
-
-        The important bit is that they are each a grouping or state of different interface elements that need to be on the screen at different times.
-
-        We'll call them "scenes" – if only because they're going up onto the Pixi.js stage object when we need them.
-    */
-
-    //
-    // Let's create a few really boring scenes using Pixi.js Containers
-    //
-
-    //SCENE 1
+    //Idle Screen
     let scene1 = new PIXI.Container();
 
     let backgroundTitle = PIXI.Sprite.from("img/background_title.jpg");
@@ -60,26 +48,31 @@
 
     scene1.addChild(backgroundTitle);
 
+    //Earth Sprite
     let earth = PIXI.Sprite.from("img/Blue_Circle_Fam.png");
-        earth.width = 100;    
-        earth.height = 100; 
-        earth.y = 200;
-        earth.x = 390; 
+        earth.width = 150;    
+        earth.height = 150; 
+        earth.y = 300;
+        earth.x = 525; 
 
         scene1.addChild(earth);
 
+    //Sun Sprite
     let sun = PIXI.Sprite.from("img/orange_circle.png");
-         
-        sun.y = -20;
-        sun.x = -350; 
+        
+        sun.height = 780;
+        sun.width = 750;
+        sun.y = -30;
+        sun.x = -600; 
 
         scene1.addChild(sun);
 
+    //Moon Sprite
     let moon = PIXI.Sprite.from("img/white_circle.png");
-        moon.width = 30;    
-        moon.height = 30;
-        moon.x = 400;
-        moon.y = 130;
+        moon.width = 75;    
+        moon.height = 75;
+        moon.x = 375;
+        moon.y = 230;
         
         scene1.addChild(moon);
 
@@ -99,7 +92,7 @@
         scene1Text.height = 40;
         scene1Text.width = 200;
         scene1Text.y = 10;
-        scene1Text.x = 200;
+        scene1Text.x = 400;
 
     //And place it into the scene
     scene1.addChild(scene1Text);
