@@ -48,6 +48,16 @@
 
     scene1.addChild(backgroundTitle);
 
+     //Moon Sprite
+     let moon = PIXI.Sprite.from("img/white_circle3.png");
+        moon.width = 200;    
+        moon.height = 64;
+        
+        moon.position.x = 600;
+        moon.position.y = 370;
+        
+        scene1.addChild(moon);
+
     //Earth Sprite
     let earth = PIXI.Sprite.from("img/Blue_Circle_Fam.png");
         earth.width = 150;    
@@ -67,15 +77,7 @@
 
         scene1.addChild(sun);
 
-    //Moon Sprite
-    let moon = PIXI.Sprite.from("img/white_circle.png");
-        moon.width = 75;    
-        moon.height = 75;
-        
-        moon.position.x = 600;
-        moon.position.y = 370;
-        
-        scene1.addChild(moon);
+   
 
     //Using our button object let's create a "next" button.
     //let nextButton = UI.Button(0,0,"Next >");
@@ -107,7 +109,7 @@
 
      moon.rotation += -0.05;
 
-     setTimeout(animationLoop, 1600/30);
+     setTimeout(animationLoop, 3000/30);
      }
      animationLoop(); 
 
