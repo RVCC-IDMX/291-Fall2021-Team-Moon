@@ -71,8 +71,9 @@
     let moon = PIXI.Sprite.from("img/white_circle.png");
         moon.width = 75;    
         moon.height = 75;
-        moon.x = 375;
-        moon.y = 230;
+        
+        moon.position.x = 600;
+        moon.position.y = 370;
         
         scene1.addChild(moon);
 
@@ -96,6 +97,19 @@
 
     //And place it into the scene
     scene1.addChild(scene1Text);
+
+     //Animation loop!
+   function animationLoop() {
+
+     let time = Date.now();
+
+     //let wobble1 = Math.sin(time/5000)*20;
+
+     moon.rotation += -0.05;
+
+     setTimeout(animationLoop, 1700/30);
+     }
+     animationLoop(); 
 
 /*
     //SCENE 2
