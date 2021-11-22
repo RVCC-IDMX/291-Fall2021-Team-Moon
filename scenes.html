@@ -113,23 +113,42 @@
      }
      animationLoop(); 
 
-/*
+    //Solar Eclipse Button 
+     let nextButton = UI.Button(0,0,"Solar Eclipse");
+
+    nextButton.x = app.view.width  - nextButton.width;
+    nextButton.y = app.view.height - nextButton.height;
+
+    scene1.addChild(nextButton);
+
+     //Lunar Eclipse 
+     let nextButton2 = UI.Button(0,0,"Lunar Eclipse");
+
+     nextButton2.y = app.view.height - nextButton2.height;
+
+     scene1.addChild(nextButton2);
+
     //SCENE 2
     let scene2 = new PIXI.Container();
 
-    let backgroundOne = PIXI.Sprite.from("img/background1.jpg");
+    let scene2Text = new PIXI.Text("Solar Eclipse",{fill:0xFFFFFF});
 
-        scene2.addChild(backgroundOne);
+        scene2Text.height = 40;
+        scene2Text.width = 200;
+        scene2Text.y = 10;
+        scene2Text.x = 400;
 
-    let fish1 = PIXI.Sprite.from("img/greenfish.png");
-            fish1.width = 200;
-            fish1.height = 200;
-            fish1.y = 250;
-            fish1.x = 300;
-            fish1.anchor.set(.5);
+    //Menu Button
+        
+    let menuButton = UI.Button(0,0,"Go Back");
 
-        scene2.addChild(fish1);
+    menuButton.y = app.view.height - menuButton.height;
 
+    scene2.addChild(menuButton);
+    
+    //And place it into the scene
+    scene2.addChild(scene2Text);
+/*
     //Using our button object let's create a "next" button.
     let backButton = UI.Button(0,0,"< Back");
     let nextButton2 = UI.Button(0,0,"Next >");
@@ -155,7 +174,25 @@
     app.stage.addChild(scene1);
 
     //Scene 3
-    
+    let scene3 = new PIXI.Container();
+
+    let scene3Text = new PIXI.Text("Lunar Eclipse",{fill:0xFFFFFF});
+
+        scene3Text.height = 40;
+        scene3Text.width = 200;
+        scene3Text.y = 10;
+        scene3Text.x = 400;
+
+     //Menu Button
+        
+    let menuButton2 = UI.Button(0,0,"Go Back");
+
+    menuButton2.y = app.view.height - menuButton.height;
+
+    scene3.addChild(menuButton2);
+
+    //And place it into the scene
+    scene3.addChild(scene3Text);
     /*
 
         So now we have two scenes set up, and the first scene on stage.
@@ -171,6 +208,21 @@
     nextButton.onclick = () => {
         app.stage.removeChild(scene1);
         app.stage.addChild(scene2);
+    }
+
+    nextButton2.onclick = () => {
+        app.stage.removeChild(scene1);
+        app.stage.addChild(scene3);
+    }
+
+    menuButton.onclick = () => {
+        app.stage.removeChild(scene2);
+        app.stage.addChild(scene1);
+    }
+
+    menuButton2.onclick = () => {
+        app.stage.removeChild(scene3);
+        app.stage.addChild(scene1);
     }
 
     backButton.onclick = () => {
