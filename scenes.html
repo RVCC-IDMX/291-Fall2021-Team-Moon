@@ -139,7 +139,7 @@
         earth2.x = 525; 
 
         scene2.addChild(earth2);
-        
+
     //Shadow Sprite
     let shadow = PIXI.Sprite.from("img/triangle.png")
         shadow.width = 200;
@@ -217,6 +217,47 @@
 
     //Scene 3
     let scene3 = new PIXI.Container();
+
+    //Moon Sprite
+    let moon3 = PIXI.Sprite.from("img/white_circle3.png");
+        moon3.width = 200;    
+        moon3.height = 64;
+        
+        moon3.position.x = 650;
+        moon3.position.y = 340;
+        
+        scene3.addChild(moon3);
+
+
+    //Shadow Sprite
+    let shadow2 = PIXI.Sprite.from("img/triangle.png")
+        shadow2.width = 300;
+        shadow2.height = 300;
+        shadow2.alpha = .75;
+
+        shadow2.position.x = 590;
+        shadow2.position.y = 230;
+         
+        scene3.addChild(shadow2);
+
+    //Earth Sprite
+    let earth3 = PIXI.Sprite.from("img/Blue_Circle_Fam.png");
+        earth3.width = 150;    
+        earth3.height = 150; 
+        earth3.y = 300;
+        earth3.x = 525; 
+
+        scene3.addChild(earth3);
+
+    //Sun Sprite
+    let sun3 = PIXI.Sprite.from("img/orange_circle.png");
+        
+        sun3.height = 780;
+        sun3.width = 750;
+        sun3.y = -30;
+        sun3.x = -600; 
+
+        scene3.addChild(sun3);
 
     let scene3Text = new PIXI.Text("Lunar Eclipse",{fill:0xFFFFFF});
 
