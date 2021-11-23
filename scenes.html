@@ -131,6 +131,48 @@
     //SCENE 2
     let scene2 = new PIXI.Container();
 
+    //Earth Sprite
+    let earth2 = PIXI.Sprite.from("img/Blue_Circle_Fam.png");
+        earth2.width = 150;    
+        earth2.height = 150; 
+        earth2.y = 300;
+        earth2.x = 525; 
+
+        scene2.addChild(earth2);
+        
+    //Shadow Sprite
+    let shadow = PIXI.Sprite.from("img/triangle.png")
+        shadow.width = 200;
+        shadow.height = 200;
+        shadow.alpha = .75;
+
+        shadow.position.x = 390;
+        shadow.position.y = 270;
+         
+        scene2.addChild(shadow);
+
+
+    //Moon Sprite
+    let moon2 = PIXI.Sprite.from("img/white_circle3.png");
+        moon2.width = 200;    
+        moon2.height = 64;
+        
+        moon2.position.x = 250;
+        moon2.position.y = 340;
+        
+        scene2.addChild(moon2);
+
+
+    //Sun Sprite
+    let sun2 = PIXI.Sprite.from("img/orange_circle.png");
+        
+        sun2.height = 780;
+        sun2.width = 750;
+        sun2.y = -30;
+        sun2.x = -600; 
+
+        scene2.addChild(sun2);
+
     let scene2Text = new PIXI.Text("Solar Eclipse",{fill:0xFFFFFF});
 
         scene2Text.height = 40;
