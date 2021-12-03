@@ -121,12 +121,20 @@
 
     scene1.addChild(nextButton);
 
-     //Lunar Eclipse 
+     //Lunar Eclipse Button
      let nextButton2 = UI.Button(0,0,"Lunar Eclipse");
 
      nextButton2.y = app.view.height - nextButton2.height;
 
      scene1.addChild(nextButton2);
+
+     //Sides of Moon Button
+     let nextButton3 = UI.Button(0,0,"Moon Sides");
+
+     nextButton3.x = app.view.width - app.view.height + 100;
+     nextButton3.y = app.view.width - app.view.height + 260;
+
+     scene1.addChild(nextButton3);
 
     //SCENE 2
     let scene2 = new PIXI.Container();
@@ -276,6 +284,26 @@
 
     //And place it into the scene
     scene3.addChild(scene3Text);
+
+    //Scene 4
+    let scene4 = new PIXI.Container();
+
+    let scene4Text = new PIXI.Text("Sides of Moon",{fill:0xFFFFFF});
+
+        scene4Text.height = 40;
+        scene4Text.width = 200;
+        scene4Text.y = 10;
+        scene4Text.x = 400;
+
+        scene4.addChild(scene4Text);
+
+    //Menu Button
+        
+    let menuButton3 = UI.Button(0,0,"Go Back");
+
+    menuButton3.y = app.view.height - menuButton.height;
+
+    scene4.addChild(menuButton3);
     /*
 
         So now we have two scenes set up, and the first scene on stage.
@@ -298,6 +326,11 @@
         app.stage.addChild(scene3);
     }
 
+    nextButton3.onclick = () => {
+        app.stage.removeChild(scene1);
+        app.stage.addChild(scene4);
+    }
+
     menuButton.onclick = () => {
         app.stage.removeChild(scene2);
         app.stage.addChild(scene1);
@@ -308,8 +341,8 @@
         app.stage.addChild(scene1);
     }
 
-    backButton.onclick = () => {
-        app.stage.removeChild(scene2);
+    menuButton3.onclick = () => {
+        app.stage.removeChild(scene4);
         app.stage.addChild(scene1);
     }
 
