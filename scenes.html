@@ -90,12 +90,13 @@
     //scene1.addChild(nextButton);
 
     //And let's add some text to tell us which scene we're on
-    let scene1Text = new PIXI.Text("Moon Project",{fill:0xFFFFFF});
+    let scene1Text = new PIXI.Text("The Earth's Moon",{fill:0xFFFFFF});
 
         scene1Text.height = 40;
-        scene1Text.width = 200;
+        scene1Text.width = 260;
         scene1Text.y = 10;
-        scene1Text.x = 400;
+        scene1Text.x = 440;
+       
 
     //And place it into the scene
     scene1.addChild(scene1Text);
@@ -104,9 +105,6 @@
    function animationLoop() {
 
      let time = Date.now();
-
-     //let wobble1 = Math.sin(time/5000)*20;
-
      moon.rotation += -0.05;
 
      setTimeout(animationLoop, 3000/30);
