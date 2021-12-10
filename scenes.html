@@ -38,6 +38,13 @@
     //Add view to the document
     document.body.appendChild(app.view);
 
+    let background = PIXI.Sprite.from("img/space.jpg");
+      background.scale.set(0.35);
+      background.x = -100;
+      background.y = -100;
+      
+      app.stage.addChild(background);
+
     //Idle Screen
     let scene1 = new PIXI.Container();
 
