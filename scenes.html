@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moon Phases</title>
+    <title>Moon-Phases</title>
 
     <!--
 
@@ -202,7 +202,11 @@
     scene2.addChild(menuButton);
     
     //And place it into the scene
-    scene2.addChild(scene2Text);
+    let sampleText = new PIXI.Text('A solar eclipse\noccurs\nwhen the Earth is covered\nwith a shadow that is shadow\ncast by the Moon which\nfully or partially blocks sunlight\nThis can only occur\n during a New Moon.', {fill: 0xff0000 });
+     sampleText.x = 100; 
+    
+     scene2.addChild(scene2Text);
+     scene2.addChild(sampleText);
 /*
     //Using our button object let's create a "next" button.
     let backButton = UI.Button(0,0,"< Back");
@@ -276,8 +280,8 @@
 
         scene3Text.height = 40;
         scene3Text.width = 200;
-        scene3Text.y = 10;
-        scene3Text.x = 400;
+        scene3Text.y = 40;
+        scene3Text.x = 30; 
 
      //Menu Button
         
@@ -289,6 +293,9 @@
 
     //And place it into the scene
     scene3.addChild(scene3Text);
+    let sampleText2 = new PIXI.Text('A lunar eclipse occurs\nwhen the Moon moves into\nthe Earths shadow.\nThis can occur only when\nSun, Earth, and Moon\nare exactly or very closely aligned\nwith Earth between the other\ntwo, and only on the night of a full moon.', {fill: 0xff0000 });
+     sampleText2.x = 250; 
+    scene3.addChild(sampleText2); 
 
     //Scene 4
     let scene4 = new PIXI.Container();
@@ -300,10 +307,12 @@
         scene4Text.y = 10;
         scene4Text.x = 400;
 
-        scene4.addChild(scene4Text);
-
-    //Menu Button
+    scene4.addChild(scene4Text);
+    let sampleText3 = new PIXI.Text('The 8 phases\nof the moon are\ncaused by the relative\nposition of the Earth,\nSun, and Moon\nnd how much sunlight is\nisbeing reflected off the Moons surface.', {fill: 0xff0000 });
+     sampleText3.x = 250; 
+    scene4.addChild(sampleText3); 
         
+    //Menu Button
     let menuButton3 = UI.Button(0,0,"Go Back");
 
     menuButton3.y = app.view.height - menuButton.height;
