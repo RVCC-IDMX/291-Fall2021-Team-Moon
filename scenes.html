@@ -318,6 +318,16 @@
     menuButton3.y = app.view.height - menuButton.height;
 
     scene4.addChild(menuButton3);
+
+    //Moon Sides Image
+    let moonSides = PIXI.Sprite.from("img/moon_sides.jpg");
+
+        moonSides.height = 350;
+        moonSides.width = 550;
+        moonSides.y = 100;
+        moonSides.x = 0; 
+
+    scene4.addChild(moonSides);
     /*
 
         So now we have two scenes set up, and the first scene on stage.
@@ -355,7 +365,7 @@
         app.stage.addChild(scene1);
     }
 
-    menuButton4.onclick = () => {
+    menuButton3.onclick = () => {
         app.stage.removeChild(scene4);
         app.stage.addChild(scene1);
     }
