@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moon-Phases</title>
 
     <!--
@@ -17,197 +17,192 @@
     <script src="js/bezier.js"></script>
     <script src="js/animate.js"></script>
     <script src="js/ui_elements.js"></script>
-</head>
-<body>
+  </head>
+  <body>
+    <script>
+      //
+      // Basic setup
+      //
 
-<script>
+      //The App
+      var app = new PIXI.Application({
+        width: 1080,
+        height: 720,
+        backgroundColor: 0x000000,
+      });
+      var stage = app.stage;
+      var view = app.view;
 
-    //
-    // Basic setup
-    //
+      //Add view to the document
+      document.body.appendChild(app.view);
 
-    //The App
-    var app = new PIXI.Application({
-        width:1080,
-        height:720,
-        backgroundColor: 0x000000
-    });
-    var stage = app.stage;
-    var view = app.view;
-
-    //Add view to the document
-    document.body.appendChild(app.view);
-
-    let background = PIXI.Sprite.from("img/space.jpg");
+      let background = PIXI.Sprite.from("img/space.jpg");
       background.scale.set(0.35);
       background.x = -100;
       background.y = -100;
-      
+
       app.stage.addChild(background);
 
-    //Idle Screen
-    let scene1 = new PIXI.Container();
+      //Idle Screen
+      let scene1 = new PIXI.Container();
 
-    let backgroundTitle = PIXI.Sprite.from("img/background_title.jpg");
+      let backgroundTitle = PIXI.Sprite.from("img/background_title.jpg");
 
-        backgroundTitle.width = 650;
-        backgroundTitle.height = 480;
+      backgroundTitle.width = 650;
+      backgroundTitle.height = 480;
 
-    scene1.addChild(backgroundTitle);
+      scene1.addChild(backgroundTitle);
 
-     //Moon Sprite
-     let moon = PIXI.Sprite.from("img/moon phases/moon2.png");
-        moon.width = 250;    
-        moon.height = 76;
-        
-        moon.position.x = 600;
-        moon.position.y = 370;
-        
-        scene1.addChild(moon);
+      //Moon Sprite
+      let moon = PIXI.Sprite.from("img/moon phases/moon2.png");
+      moon.width = 250;
+      moon.height = 76;
 
-    //Earth Sprite
-    let earth = PIXI.Sprite.from("img/Earth.png");
-        earth.width = 180;    
-        earth.height = 180; 
-        earth.y = 280;
-        earth.x = 525; 
+      moon.position.x = 600;
+      moon.position.y = 370;
 
-        scene1.addChild(earth);
+      scene1.addChild(moon);
 
-    //Sun Sprite
-    let sun = PIXI.Sprite.from("img/Sun.png");
-        
-        sun.height = 1000;
-        sun.width = 1000;
-        sun.y = -150;
-        sun.x = -800; 
+      //Earth Sprite
+      let earth = PIXI.Sprite.from("img/Earth.png");
+      earth.width = 180;
+      earth.height = 180;
+      earth.y = 280;
+      earth.x = 525;
 
-        scene1.addChild(sun);
+      scene1.addChild(earth);
 
-   
+      //Sun Sprite
+      let sun = PIXI.Sprite.from("img/Sun.png");
 
-    //Using our button object let's create a "next" button.
-    //let nextButton = UI.Button(0,0,"Next >");
-    
-    //Let's place it in the bottom right-hand corner of the screen (regardless of size)
-    //nextButton.x = app.view.width  - nextButton.width;
-   // nextButton.y = app.view.height - nextButton.height;
+      sun.height = 1000;
+      sun.width = 1000;
+      sun.y = -150;
+      sun.x = -800;
 
-    //And place it into the scene
-    //scene1.addChild(nextButton);
+      scene1.addChild(sun);
 
-    //And let's add some text to tell us which scene we're on
-    let scene1Text = new PIXI.Text("The Earth's Moon",{fill:0xFFFFFF});
+      //Using our button object let's create a "next" button.
+      //let nextButton = UI.Button(0,0,"Next >");
 
-        scene1Text.height = 40;
-        scene1Text.width = 260;
-        scene1Text.y = 10;
-        scene1Text.x = 440;
-       
+      //Let's place it in the bottom right-hand corner of the screen (regardless of size)
+      //nextButton.x = app.view.width  - nextButton.width;
+      // nextButton.y = app.view.height - nextButton.height;
 
-    //And place it into the scene
-    scene1.addChild(scene1Text);
+      //And place it into the scene
+      //scene1.addChild(nextButton);
 
-     //Animation loop!
-   function animationLoop() {
+      //And let's add some text to tell us which scene we're on
+      let scene1Text = new PIXI.Text("The Earth's Moon", { fill: 0xffffff });
 
-     let time = Date.now();
-     moon.rotation += -0.05;
+      scene1Text.height = 40;
+      scene1Text.width = 260;
+      scene1Text.y = 10;
+      scene1Text.x = 440;
 
-     setTimeout(animationLoop, 3000/30);
-     }
-     animationLoop(); 
+      //And place it into the scene
+      scene1.addChild(scene1Text);
 
-    //Solar Eclipse Button 
-     let nextButton = UI.Button(0,0,"Solar Eclipse");
+      //Animation loop!
+      function animationLoop() {
+        let time = Date.now();
+        moon.rotation += -0.05;
 
-    nextButton.x = app.view.width  - nextButton.width;
-    nextButton.y = app.view.height - nextButton.height;
+        setTimeout(animationLoop, 3000 / 30);
+      }
+      animationLoop();
 
-    scene1.addChild(nextButton);
+      //Solar Eclipse Button
+      let nextButton = UI.Button(0, 0, "Solar Eclipse");
 
-     //Lunar Eclipse Button
-     let nextButton2 = UI.Button(0,0,"Lunar Eclipse");
+      nextButton.x = app.view.width - nextButton.width;
+      nextButton.y = app.view.height - nextButton.height;
 
-     nextButton2.y = app.view.height - nextButton2.height;
+      scene1.addChild(nextButton);
 
-     scene1.addChild(nextButton2);
+      //Lunar Eclipse Button
+      let nextButton2 = UI.Button(0, 0, "Lunar Eclipse");
 
-     //Sides of Moon Button
-     let nextButton3 = UI.Button(0,0,"Moon Sides");
+      nextButton2.y = app.view.height - nextButton2.height;
 
-     nextButton3.x = app.view.width - app.view.height + 100;
-     nextButton3.y = app.view.width - app.view.height + 260;
+      scene1.addChild(nextButton2);
 
-     scene1.addChild(nextButton3);
+      //Sides of Moon Button
+      let nextButton3 = UI.Button(0, 0, "Moon Sides");
 
-    //SCENE 2
-    let scene2 = new PIXI.Container();
+      nextButton3.x = app.view.width - app.view.height + 100;
+      nextButton3.y = app.view.width - app.view.height + 260;
 
-    //Earth Sprite
-    let earth2 = PIXI.Sprite.from("img/Earth.png");
-        earth2.width = 180;    
-        earth2.height = 180; 
-        earth2.y = 280;
-        earth2.x = 525; 
+      scene1.addChild(nextButton3);
 
-        scene2.addChild(earth2);
+      //SCENE 2
+      let scene2 = new PIXI.Container();
 
-    //Shadow Sprite
-    let shadow = PIXI.Sprite.from("img/triangle.png")
-        shadow.width = 200;
-        shadow.height = 200;
-        shadow.alpha = .75;
+      //Earth Sprite
+      let earth2 = PIXI.Sprite.from("img/Earth.png");
+      earth2.width = 180;
+      earth2.height = 180;
+      earth2.y = 280;
+      earth2.x = 525;
 
-        shadow.position.x = 390;
-        shadow.position.y = 270;
-         
-        scene2.addChild(shadow);
+      scene2.addChild(earth2);
 
+      //Shadow Sprite
+      let shadow = PIXI.Sprite.from("img/triangle.png");
+      shadow.width = 200;
+      shadow.height = 200;
+      shadow.alpha = 0.75;
 
-    //Moon Sprite
-    let moon2 = PIXI.Sprite.from("img/moon phases/moon2.png");
-        moon2.width = 250;    
-        moon2.height = 76;
-        
-        moon2.position.x = 250;
-        moon2.position.y = 340;
-        
-        scene2.addChild(moon2);
+      shadow.position.x = 390;
+      shadow.position.y = 270;
 
+      scene2.addChild(shadow);
 
-    //Sun Sprite
-    let sun2 = PIXI.Sprite.from("img/Sun.png");
-        
-        sun2.height = 1000;
-        sun2.width = 1000;
-        sun2.y = -150;
-        sun2.x = -800; 
+      //Moon Sprite
+      let moon2 = PIXI.Sprite.from("img/moon phases/moon2.png");
+      moon2.width = 250;
+      moon2.height = 76;
 
-        scene2.addChild(sun2);
+      moon2.position.x = 250;
+      moon2.position.y = 340;
 
-    let scene2Text = new PIXI.Text("Solar Eclipse",{fill:0xFFFFFF});
+      scene2.addChild(moon2);
 
-        scene2Text.height = 40;
-        scene2Text.width = 200;
-        scene2Text.y = 10;
-        scene2Text.x = 400;
+      //Sun Sprite
+      let sun2 = PIXI.Sprite.from("img/Sun.png");
 
-    //Menu Button
-        
-    let menuButton = UI.Button(0,0,"Go Back");
+      sun2.height = 1000;
+      sun2.width = 1000;
+      sun2.y = -150;
+      sun2.x = -800;
 
-    menuButton.y = app.view.height - menuButton.height;
+      scene2.addChild(sun2);
 
-    scene2.addChild(menuButton);
-    
-    //And place it into the scene
-    let sampleText = new PIXI.Text('A solar eclipse\noccurs\nwhen the Earth is covered\nwith a shadow that is shadow\ncast by the Moon which\nfully or partially blocks sunlight\nThis can only occur\n during a New Moon.', {fill: 0xff0000 });
-     sampleText.x = 100; 
-    
-     scene2.addChild(scene2Text);
-     scene2.addChild(sampleText);
-/*
+      let scene2Text = new PIXI.Text("Solar Eclipse", { fill: 0xffffff });
+
+      scene2Text.height = 40;
+      scene2Text.width = 200;
+      scene2Text.y = 10;
+      scene2Text.x = 400;
+
+      //Menu Button
+
+      let menuButton = UI.Button(0, 0, "Go Back");
+
+      menuButton.y = app.view.height - menuButton.height;
+
+      scene2.addChild(menuButton);
+
+      //And place it into the scene
+      let sampleText = new PIXI.Text(
+        "A solar eclipse\noccurs\nwhen the Earth is covered\nwith a shadow that is shadow\ncast by the Moon which\nfully or partially blocks sunlight\nThis can only occur\n during a New Moon.",
+        { fill: 0xff0000 }
+      );
+      sampleText.x = 700;
+      sampleText.y = 100;
+      scene2.addChild(scene2Text);
+      scene2.addChild(sampleText);
+      /*
     //Using our button object let's create a "next" button.
     let backButton = UI.Button(0,0,"< Back");
     let nextButton2 = UI.Button(0,0,"Next >");
@@ -229,106 +224,113 @@
     //And place it into the scene
     scene2.addChild(scene2Text);
 */
-    //Now let's add the first scene to the stage
-    app.stage.addChild(scene1);
+      //Now let's add the first scene to the stage
+      app.stage.addChild(scene1);
 
-    //Scene 3
-    let scene3 = new PIXI.Container();
+      //Scene 3
+      let scene3 = new PIXI.Container();
 
-    //Moon Sprite
-    let moon3 = PIXI.Sprite.from("img/moon phases/moon2.png");
-        moon3.width = 250;    
-        moon3.height = 76;
-        
-        moon3.position.x = 650;
-        moon3.position.y = 340;
-        
-        scene3.addChild(moon3);
+      //Moon Sprite
+      let moon3 = PIXI.Sprite.from("img/moon phases/moon2.png");
+      moon3.width = 250;
+      moon3.height = 76;
 
+      moon3.position.x = 650;
+      moon3.position.y = 340;
 
-    //Shadow Sprite
-    let shadow2 = PIXI.Sprite.from("img/triangle.png")
-        shadow2.width = 300;
-        shadow2.height = 300;
-        shadow2.alpha = .75;
+      scene3.addChild(moon3);
 
-        shadow2.position.x = 590;
-        shadow2.position.y = 230;
-         
-        scene3.addChild(shadow2);
+      //Shadow Sprite
+      let shadow2 = PIXI.Sprite.from("img/triangle.png");
+      shadow2.width = 300;
+      shadow2.height = 300;
+      shadow2.alpha = 0.75;
 
-    //Earth Sprite
-    let earth3 = PIXI.Sprite.from("img/Earth.png");
-        earth3.width = 180;    
-        earth3.height = 180; 
-        earth3.y = 280;
-        earth3.x = 525; 
+      shadow2.position.x = 590;
+      shadow2.position.y = 230;
 
-        scene3.addChild(earth3);
+      scene3.addChild(shadow2);
 
-    //Sun Sprite
-    let sun3 = PIXI.Sprite.from("img/Sun.png");
-        
-        sun3.height = 1000;
-        sun3.width = 1000;
-        sun3.y = -150;
-        sun3.x = -800; 
+      //Earth Sprite
+      let earth3 = PIXI.Sprite.from("img/Earth.png");
+      earth3.width = 180;
+      earth3.height = 180;
+      earth3.y = 280;
+      earth3.x = 525;
 
-        scene3.addChild(sun3);
+      scene3.addChild(earth3);
 
-    let scene3Text = new PIXI.Text("Lunar Eclipse",{fill:0xFFFFFF});
+      //Sun Sprite
+      let sun3 = PIXI.Sprite.from("img/Sun.png");
 
-        scene3Text.height = 40;
-        scene3Text.width = 200;
-        scene3Text.y = 40;
-        scene3Text.x = 30; 
+      sun3.height = 1000;
+      sun3.width = 1000;
+      sun3.y = -150;
+      sun3.x = -800;
 
-     //Menu Button
-        
-    let menuButton2 = UI.Button(0,0,"Go Back");
+      scene3.addChild(sun3);
 
-    menuButton2.y = app.view.height - menuButton.height;
+      let scene3Text = new PIXI.Text("Lunar Eclipse", { fill: 0xffffff });
 
-    scene3.addChild(menuButton2);
+      scene3Text.height = 40;
+      scene3Text.width = 200;
+      scene3Text.y = 10;
+      scene3Text.x = 370;
 
-    //And place it into the scene
-    scene3.addChild(scene3Text);
-    let sampleText2 = new PIXI.Text('A lunar eclipse occurs\nwhen the Moon moves into\nthe Earths shadow.\nThis can occur only when\nSun, Earth, and Moon\nare exactly or very closely aligned\nwith Earth between the other\ntwo, and only on the night of a full moon.', {fill: 0xff0000 });
-     sampleText2.x = 250; 
-    scene3.addChild(sampleText2); 
+      //Menu Button
 
-    //Scene 4
-    let scene4 = new PIXI.Container();
+      let menuButton2 = UI.Button(0, 0, "Go Back");
 
-    let scene4Text = new PIXI.Text("Sides of Moon",{fill:0xFFFFFF});
+      menuButton2.y = app.view.height - menuButton.height;
 
-        scene4Text.height = 40;
-        scene4Text.width = 200;
-        scene4Text.y = 10;
-        scene4Text.x = 400;
+      scene3.addChild(menuButton2);
 
-    scene4.addChild(scene4Text);
-    let sampleText3 = new PIXI.Text('The 8 phases\nof the moon are\ncaused by the relative\nposition of the Earth,\nSun, and Moon\nnd how much sunlight is\nisbeing reflected off the Moons surface.', {fill: 0xff0000 });
-     sampleText3.x = 250; 
-    scene4.addChild(sampleText3); 
-        
-    //Menu Button
-    let menuButton3 = UI.Button(0,0,"Go Back");
+      //And place it into the scene
+      scene3.addChild(scene3Text);
+      let sampleText2 = new PIXI.Text(
+        "A lunar eclipse occurs\nwhen the Moon moves into\nthe Earths shadow.\nThis can occur only when\nSun, Earth, and Moon\nare exactly or very closely aligned\nwith Earth between the other\ntwo, and only on the night of a full moon.",
+        { fill: 0xff0000 }
+      );
+      sampleText2.x = 605;
+      sampleText2.y = 0;
+      scene3.addChild(sampleText2);
 
-    menuButton3.y = app.view.height - menuButton.height;
+      //Scene 4
+      let scene4 = new PIXI.Container();
 
-    scene4.addChild(menuButton3);
+      let scene4Text = new PIXI.Text("Sides of Moon", { fill: 0xffffff });
 
-    //Moon Sides Image
-    let moonSides = PIXI.Sprite.from("img/moon_sides.jpg");
+      scene4Text.height = 40;
+      scene4Text.width = 200;
+      scene4Text.y = 10;
+      scene4Text.x = 400;
 
-        moonSides.height = 350;
-        moonSides.width = 550;
-        moonSides.y = 100;
-        moonSides.x = 0; 
+      scene4.addChild(scene4Text);
+      let sampleText3 = new PIXI.Text(
+        "The 8 phases\nof the moon are\ncaused by the relative\nposition of the Earth,\nSun, and Moon\nand how much sunlight is\nbeing reflected off the Moons surface.",
+        { fill: 0xff0000 }
+      );
+      sampleText3.x = 630;
+      sampleText3.y = 100;
+      scene4.addChild(sampleText3);
 
-    scene4.addChild(moonSides);
-    /*
+      //Menu Button
+      let menuButton3 = UI.Button(0, 0, "Go Back");
+
+      menuButton3.y = app.view.height - menuButton.height;
+
+      scene4.addChild(menuButton3);
+
+      //Moon Sides Image
+      let moonSides = PIXI.Sprite.from("img/moon_sides.jpg");
+
+      moonSides.height = 350;
+      moonSides.width = 550;
+      moonSides.y = 100;
+      moonSides.x = 0;
+
+      scene4.addChild(moonSides);
+      /*
 
         So now we have two scenes set up, and the first scene on stage.
 
@@ -336,41 +338,41 @@
 
     */
 
-    //
-    // Swapping between scenes
-    //
+      //
+      // Swapping between scenes
+      //
 
-    nextButton.onclick = () => {
+      nextButton.onclick = () => {
         app.stage.removeChild(scene1);
         app.stage.addChild(scene2);
-    }
+      };
 
-    nextButton2.onclick = () => {
+      nextButton2.onclick = () => {
         app.stage.removeChild(scene1);
         app.stage.addChild(scene3);
-    }
+      };
 
-    nextButton3.onclick = () => {
+      nextButton3.onclick = () => {
         app.stage.removeChild(scene1);
         app.stage.addChild(scene4);
-    }
+      };
 
-    menuButton.onclick = () => {
+      menuButton.onclick = () => {
         app.stage.removeChild(scene2);
         app.stage.addChild(scene1);
-    }
+      };
 
-    menuButton2.onclick = () => {
+      menuButton2.onclick = () => {
         app.stage.removeChild(scene3);
         app.stage.addChild(scene1);
-    }
+      };
 
-    menuButton3.onclick = () => {
+      menuButton3.onclick = () => {
         app.stage.removeChild(scene4);
         app.stage.addChild(scene1);
-    }
+      };
 
-    /*
+      /*
 
         Tada! We've implemented a crappy version of Powerpoint... *yay*
 
@@ -378,9 +380,9 @@
 
     */
 
-    nextButton.onclick = async () => {
+      nextButton.onclick = async () => {
         //Fade out current scene
-        await Animate.to(scene1,{alpha:0,duration:500});
+        await Animate.to(scene1, { alpha: 0, duration: 500 });
         //Remove it from stage
         app.stage.removeChild(scene1);
         //Set next scene to zero alpha
@@ -388,14 +390,14 @@
         //Add it to the stage
         app.stage.addChild(scene2);
         //Fade it in
-        await Animate.to(scene2,{alpha:1,duration:500});
+        await Animate.to(scene2, { alpha: 1, duration: 500 });
         //Reset the off-stage scene's alpha back
         scene2.alpha = 1;
-    }
+      };
 
-    backButton.onclick = async () => {
+      backButton.onclick = async () => {
         //Fade out current scene
-        await Animate.to(scene2,{alpha:0,duration:500});
+        await Animate.to(scene2, { alpha: 0, duration: 500 });
         //Remove it from stage
         app.stage.removeChild(scene2);
         //Set next scene to zero alpha
@@ -403,56 +405,68 @@
         //Add it to the stage
         app.stage.addChild(scene1);
         //Fade it in
-        await Animate.to(scene1,{alpha:1,duration:500});
+        await Animate.to(scene1, { alpha: 1, duration: 500 });
         //Reset the off-stage scene's alpha back
         scene1.alpha = 1;
-    }
+      };
 
-    /*
+      /*
 
         Or how about a swipe transition?
 
     */
 
-    nextButton.onclick = async () => {
+      nextButton.onclick = async () => {
         //Set up next scene on the right
         scene2.x = app.view.width;
         app.stage.addChild(scene2);
 
         //Fade out current scene as it moves off to the left
-        Animate.to(scene1,{x:-app.view.width,
-                                duration:500,easing:Animate.easeInOut});
+        Animate.to(scene1, {
+          x: -app.view.width,
+          duration: 500,
+          easing: Animate.easeInOut,
+        });
         //WHILE bringing in the next scene
-        await Animate.to(scene2,{x:0,
-                                duration:500,easing:Animate.easeInOut});
+        await Animate.to(scene2, {
+          x: 0,
+          duration: 500,
+          easing: Animate.easeInOut,
+        });
         //We only "await" on the last animation, so that they both move at the same time
 
         //Remove the old scene from stage
         app.stage.removeChild(scene1);
         //And just to be nice, replace it where it belongs
         scene1.x = 0;
-    }
+      };
 
-    backButton.onclick = async () => {
+      backButton.onclick = async () => {
         //Set up next scene on the right
         scene1.x = -app.view.width;
         app.stage.addChild(scene1);
 
         //Fade out current scene as it moves off to the left
-        Animate.to(scene2,{x:app.view.width,
-                                duration:500,easing:Animate.easeInOut});
+        Animate.to(scene2, {
+          x: app.view.width,
+          duration: 500,
+          easing: Animate.easeInOut,
+        });
         //WHILE bringing in the next scene
-        await Animate.to(scene1,{x:0,
-                                duration:500,easing:Animate.easeInOut});
+        await Animate.to(scene1, {
+          x: 0,
+          duration: 500,
+          easing: Animate.easeInOut,
+        });
         //We only "await" on the last animation, so that they both move at the same time
 
         //Remove the old scene from stage
         app.stage.removeChild(scene2);
         //And just to be nice, replace it where it belongs
         scene2.x = 0;
-    }
+      };
 
-    /*
+      /*
 
         So all of this is awesome, but it's messy if we scale it.
 
@@ -462,46 +476,38 @@
 
     */
 
-    //Let's call it the Director. It calls the shots.
-    var Director = {
-
+      //Let's call it the Director. It calls the shots.
+      var Director = {
         //It holds a list of scenes
-        scene : {},
-        
+        scene: {},
+
         //Add a scene to the list
-        addScene : (name,scene) => {
+        addScene: (name, scene) => {
+          //If it exists throw an error
+          if (Director.scene[name]) throw "That scene already exists!";
 
-            //If it exists throw an error
-            if (Director.scene[name]) 
-                throw "That scene already exists!"
-            
-            //Otherwise add it
-            Director.scene[name] = scene;
+          //Otherwise add it
+          Director.scene[name] = scene;
 
-            //If it's the first scene, make it the active one
-            if (Director.currentScene == null)
-                Director.currentScene = name;
-
+          //If it's the first scene, make it the active one
+          if (Director.currentScene == null) Director.currentScene = name;
         },
 
         //And it keeps track of the current one
-        currentScene : null,
+        currentScene: null,
 
         //And a function to change scenes
-        showScene : async (nextSceneName, params) => {
+        showScene: async (nextSceneName, params) => {
+          if (params == undefined) params = {};
 
-            if (params == undefined) params = {};
+          let currentScene = Director.scene[Director.currentScene];
+          nextScene = Director.scene[nextSceneName];
 
-            let currentScene = Director.scene[Director.currentScene];
-                nextScene    = Director.scene[nextSceneName];
+          if (params.transition == undefined) params.transition = Director.cut;
 
-            if (params.transition == undefined)
-                params.transition = Director.cut;
+          await params.transition(currentScene, nextScene, params);
 
-            await params.transition(currentScene, nextScene, params);
-
-            Director.currentScene = nextSceneName;
-
+          Director.currentScene = nextSceneName;
         },
 
         //
@@ -509,105 +515,110 @@
         //
 
         //Cut (no transition)
-        cut : async (currentScene,nextScene,params) => {
-            app.stage.removeChild(currentScene);
-            app.stage.addChild(nextScene);
+        cut: async (currentScene, nextScene, params) => {
+          app.stage.removeChild(currentScene);
+          app.stage.addChild(nextScene);
         },
 
         //Fade between
-        fade : async (currentScene,nextScene,params) => {
+        fade: async (currentScene, nextScene, params) => {
+          //Check duration
+          if (params == undefined) params = {};
+          if (params.duration == undefined) params.duration = 500;
 
-            //Check duration
-            if (params == undefined) params = {};
-            if (params.duration == undefined) params.duration = 500;
-
-            //Fade out current scene
-            await Animate.to(currentScene,{alpha:0,duration:params.duration/2});
-            //Remove it from stage
-            app.stage.removeChild(currentScene);
-            //Set next scene to zero alpha
-            nextScene.alpha = 0;
-            //Add it to the stage
-            app.stage.addChild(nextScene);
-            //Fade it in
-            await Animate.to(nextScene,{alpha:1,duration:params.duration/2});
-            //Reset the off-stage scene's alpha back
-            currentScene.alpha = 1;
+          //Fade out current scene
+          await Animate.to(currentScene, {
+            alpha: 0,
+            duration: params.duration / 2,
+          });
+          //Remove it from stage
+          app.stage.removeChild(currentScene);
+          //Set next scene to zero alpha
+          nextScene.alpha = 0;
+          //Add it to the stage
+          app.stage.addChild(nextScene);
+          //Fade it in
+          await Animate.to(nextScene, {
+            alpha: 1,
+            duration: params.duration / 2,
+          });
+          //Reset the off-stage scene's alpha back
+          currentScene.alpha = 1;
         },
 
         //Slide in a particular direction
-        swipe : async (currentScene,nextScene,params) => {
+        swipe: async (currentScene, nextScene, params) => {
+          //Set up destinations
+          let currentSceneEndX, currentSceneEndY;
+          let nextSceneStartX, nextSceneStartY;
 
-            //Set up destinations
-            let currentSceneEndX,  currentSceneEndY;
-            let nextSceneStartX,   nextSceneStartY;
+          //Check duration
+          if (params == undefined) params = {};
+          if (params.duration == undefined) params.duration = 500;
 
-            //Check duration
-            if (params == undefined) params = {};
-            if (params.duration == undefined) params.duration = 500;
+          //Set default direction
+          if (params.direction == undefined) params.direction = "left";
 
-            //Set default direction
-            if (params.direction == undefined) params.direction = "left";
+          //Figure out initial and end positions
+          if (params.direction == "left") {
+            currentSceneEndX = -app.view.width;
+            currentSceneEndY = 0;
+            nextSceneStartX = app.view.width;
+            nextSceneStartY = 0;
+          } else if (params.direction == "right") {
+            currentSceneEndX = app.view.width;
+            currentSceneEndY = 0;
+            nextSceneStartX = -app.view.width;
+            nextSceneStartY = 0;
+          } else if (params.direction == "up") {
+            currentSceneEndX = 0;
+            currentSceneEndY = -app.view.height;
+            nextSceneStartX = 0;
+            nextSceneStartY = app.view.height;
+          } else if (params.direction == "down") {
+            currentSceneEndX = 0;
+            currentSceneEndY = app.view.height;
+            nextSceneStartX = 0;
+            nextSceneStartY = -app.view.height;
+          }
 
-            //Figure out initial and end positions
-            if (params.direction == "left") {
-                currentSceneEndX = -app.view.width;
-                currentSceneEndY = 0;
-                nextSceneStartX = app.view.width;
-                nextSceneStartY = 0;
-            }
-            else if (params.direction == "right") {
-                currentSceneEndX = app.view.width;
-                currentSceneEndY = 0;
-                nextSceneStartX = -app.view.width;
-                nextSceneStartY = 0;
-            }
-            else if (params.direction == "up") {
-                currentSceneEndX = 0;
-                currentSceneEndY = -app.view.height;
-                nextSceneStartX = 0;
-                nextSceneStartY = app.view.height;
-            }
-            else if (params.direction == "down") {
-                currentSceneEndX = 0;
-                currentSceneEndY = app.view.height;
-                nextSceneStartX = 0;
-                nextSceneStartY = -app.view.height;
-            }
+          //Set up next scene
+          nextScene.x = nextSceneStartX;
+          nextScene.y = nextSceneStartY;
+          app.stage.addChild(nextScene);
 
-            //Set up next scene
-            nextScene.x = nextSceneStartX;
-            nextScene.y = nextSceneStartY;
-            app.stage.addChild(nextScene);
+          //Slide out current scene as it moves off
+          Animate.to(currentScene, {
+            x: currentSceneEndX,
+            y: currentSceneEndY,
+            duration: params.duration,
+            easing: Animate.easeInOut,
+          });
+          //WHILE bringing in the next scene
+          await Animate.to(nextScene, {
+            x: 0,
+            y: 0,
+            duration: params.duration,
+            easing: Animate.easeInOut,
+          });
+          //We only "await" on the last animation, so that they both move at the same time
 
-            //Slide out current scene as it moves off
-            Animate.to(currentScene,{   x:currentSceneEndX, y:currentSceneEndY,
-                                        duration:params.duration,
-                                        easing:Animate.easeInOut});
-            //WHILE bringing in the next scene
-            await Animate.to(nextScene,{x:0, y:0,
-                                        duration:params.duration,
-                                        easing:Animate.easeInOut});
-            //We only "await" on the last animation, so that they both move at the same time
+          //Remove the old scene from stage
+          app.stage.removeChild(currentScene);
 
-            //Remove the old scene from stage
-            app.stage.removeChild(currentScene);
-
-            //And just to be nice, move the old scene back to neutral
-            currentScene.x = 0;
-            currentScene.y = 0;
-
+          //And just to be nice, move the old scene back to neutral
+          currentScene.x = 0;
+          currentScene.y = 0;
         },
+      };
 
-    };
-
-    /*
+      /*
 
         Now let's set up our prior scenes with the Director instead.
 
     */
 
-    Director.addScene("first", scene1);
+      Director.addScene("first", scene1);
       Director.addScene("second", scene2);
       Director.addScene("third", scene3);
       Director.addScene("fourth", scene4);
@@ -640,54 +651,59 @@
         Director.fade(scene4, scene3);
       };
 
-
       async function idleSwim1() {
-                await Animate.to(fish1,{
-                    x:300,y:330,
-                    duration:2000,
-                    easing:Animate.easeInOut
-                });
-                await Animate.to(fish1,{
-                    x:300,y:250,
-                    duration:2000,
-                    easing:Animate.easeInOut
-                });
-                idleSwim1();
-            }
-            idleSwim1();
+        await Animate.to(fish1, {
+          x: 300,
+          y: 330,
+          duration: 2000,
+          easing: Animate.easeInOut,
+        });
+        await Animate.to(fish1, {
+          x: 300,
+          y: 250,
+          duration: 2000,
+          easing: Animate.easeInOut,
+        });
+        idleSwim1();
+      }
+      idleSwim1();
 
-            async function idleSwim2() {
-                await Animate.to(fish3,{
-                    x:-150,y:250,
-                    duration:1200,
-                    easing:Animate.easeInOut
-                });
-                fish3.scale.x *= -1;
-                await Animate.to(fish3,{
-                    x:800,y:250,
-                    duration:1700,
-                    easing:Animate.easeInOut
-                });
-                fish3.scale.x *= -1;
-                idleSwim2();
-            }
-            idleSwim2();
+      async function idleSwim2() {
+        await Animate.to(fish3, {
+          x: -150,
+          y: 250,
+          duration: 1200,
+          easing: Animate.easeInOut,
+        });
+        fish3.scale.x *= -1;
+        await Animate.to(fish3, {
+          x: 800,
+          y: 250,
+          duration: 1700,
+          easing: Animate.easeInOut,
+        });
+        fish3.scale.x *= -1;
+        idleSwim2();
+      }
+      idleSwim2();
 
-            async function idleSwim3() {
-                await Animate.to(fish2,{
-                    x:300,y:300,
-                    duration:1200,
-                    easing:Animate.easeInOut
-                });
-                await Animate.to(fish2,{
-                    x:300,y:250,
-                    duration:1200,
-                    easing:Animate.easeInOut
-                });
-                idleSwim3();
-            }
-            idleSwim3();
-    /*
+      async function idleSwim3() {
+        await Animate.to(fish2, {
+          x: 300,
+          y: 300,
+          duration: 1200,
+          easing: Animate.easeInOut,
+        });
+        await Animate.to(fish2, {
+          x: 300,
+          y: 250,
+          duration: 1200,
+          easing: Animate.easeInOut,
+        });
+        idleSwim3();
+      }
+      idleSwim3();
+      /*
         This week's homework!
 
         Accept the assignment invite for Meet The Fish (when it goes up).
@@ -710,8 +726,6 @@
         Add in a new transition of your choice and implement it on one of your transitions.
 
     */
-
-</script>
-    
-</body>
+    </script>
+  </body>
 </html>
