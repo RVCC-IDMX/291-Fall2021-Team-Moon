@@ -154,45 +154,12 @@
     //SCENE 2
     let scene2 = new PIXI.Container();
 
-    //Earth Sprite
-    let earth2 = PIXI.Sprite.from('img/Earth.png');
-    earth2.width = 180;
-    earth2.height = 180;
-    earth2.y = 280;
-    earth2.x = 525;
+    //Solar Eclipse Sprite
+    let pic2 = PIXI.Sprite.from('img/solar_eclipse_fin.png');
 
-    scene2.addChild(earth2);
-
-    //Shadow Sprite
-    let shadow = PIXI.Sprite.from('img/triangle.png');
-    shadow.width = 200;
-    shadow.height = 200;
-    shadow.alpha = 0.75;
-
-    shadow.position.x = 390;
-    shadow.position.y = 270;
-
-    scene2.addChild(shadow);
-
-    //Moon Sprite
-    let moon2 = PIXI.Sprite.from('img/moon phases/moon2.png');
-    moon2.width = 250;
-    moon2.height = 76;
-
-    moon2.position.x = 250;
-    moon2.position.y = 340;
-
-    scene2.addChild(moon2);
-
-    //Sun Sprite
-    let sun2 = PIXI.Sprite.from('img/Sun.png');
-
-    sun2.height = 1000;
-    sun2.width = 1000;
-    sun2.y = -150;
-    sun2.x = -800;
-
-    scene2.addChild(sun2);
+    pic2.width = 1000;
+   
+    scene2.addChild(pic2);
 
     let scene2Text = new PIXI.Text('Solar Eclipse', { fill: 0xffffff });
 
@@ -231,45 +198,12 @@
     */
     let scene3 = new PIXI.Container();
 
-    //Moon Sprite
-    let moon3 = PIXI.Sprite.from('img/moon phases/moon2.png');
-    moon3.width = 250;
-    moon3.height = 76;
+    //Lunar Eclipse Sprite
+    let pic3 = PIXI.Sprite.from('img/lunar_eclipse_fin.png');
 
-    moon3.position.x = 650;
-    moon3.position.y = 340;
+    pic3.width = 1000;
 
-    scene3.addChild(moon3);
-
-    //Shadow Sprite
-    let shadow2 = PIXI.Sprite.from('img/triangle.png');
-    shadow2.width = 300;
-    shadow2.height = 300;
-    shadow2.alpha = 0.75;
-
-    shadow2.position.x = 590;
-    shadow2.position.y = 230;
-
-    scene3.addChild(shadow2);
-
-    //Earth Sprite
-    let earth3 = PIXI.Sprite.from('img/Earth.png');
-    earth3.width = 180;
-    earth3.height = 180;
-    earth3.y = 280;
-    earth3.x = 525;
-
-    scene3.addChild(earth3);
-
-    //Sun Sprite
-    let sun3 = PIXI.Sprite.from('img/Sun.png');
-
-    sun3.height = 1000;
-    sun3.width = 1000;
-    sun3.y = -150;
-    sun3.x = -800;
-
-    scene3.addChild(sun3);
+    scene3.addChild(pic3);
 
     let scene3Text = new PIXI.Text('Lunar Eclipse', { fill: 0xffffff });
 
