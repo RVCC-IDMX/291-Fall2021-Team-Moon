@@ -8,11 +8,8 @@
   <title>Moon-Phases</title>
 
   <!--
-
         First note what we're loading in.
-
         We could also do this the JavaScript Module route, but we'll learn about that later.
-
     -->
   <script src="https://pixijs.download/release/pixi.js"></script>
   <script src="js/bezier.js"></script>
@@ -46,9 +43,7 @@
     app.stage.addChild(background);
 
     /*
-
      >>>>>>>>>>>>>  SCENE 1 Sprites & Animation
-
     */
 
     //Idle Screen
@@ -104,16 +99,12 @@
     animationLoop();
 
     /*
-
     End of Scene 1 Sprites and Animation <<<<<<<<<<<<<<<<
-
     */
 
 
     /*
-
     >>>>>>>>>>>>>  Buttons
-
     */
 
     //Solar Eclipse Button
@@ -140,15 +131,11 @@
     scene1.addChild(moonSidesButton);
 
     /*
-
     End of Buttons <<<<<<<<<<<<<<<<
-
     */
 
     /*
-
       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SCENE 2 Solar Eclipse
-
     */
 
     //SCENE 2
@@ -178,7 +165,8 @@
 
     //And place it into the scene
     let sampleText2 = new PIXI.Text('A solar eclipse occurs when the\nEarth is covered with a shadow\nthat is shadow cast by the Moon\nwhich fully or partially blocks\nsunlight.This can only occur\nduring a New Moon.', { fill: 0xff0000 });
-    sampleText2.x = 700;
+    sampleText2.scale.set(0.89);
+    sampleText2.x = 710;
     sampleText2.y = 40;
     scene2.addChild(scene2Text);
     scene2.addChild(sampleText2);
@@ -186,15 +174,11 @@
     //Now let's add the first scene to the stage
     app.stage.addChild(scene1);
     /*
-
     End of Scene 2 Solar Eclipse <<<<<<<<<<<<<<<<
-
     */
 
     /*
-
       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SCENE 3 Lunar Eclipse
-
     */
     let scene3 = new PIXI.Container();
 
@@ -224,19 +208,16 @@
     scene3.addChild(scene3Text);
 
     let sampleText3 = new PIXI.Text('A lunar eclipse occurs\nwhen the Moon moves into\nthe Earths shadow.\nThis can occur only when\nSun, Earth, and Moon\nare exactly or very closely aligned\nwith Earth between the other\ntwo, and only on the night of a full moon.', { fill: 0xff0000 });
-    sampleText3.x = 620;
+    sampleText3.scale.set(.85);
+    sampleText3.x = 660;
     sampleText3.y = 470;
     scene3.addChild(sampleText3);
     /*
-
     End of Scene 3 Lunar Eclipse <<<<<<<<<<<<<<<<
-
     */
 
     /*
-
      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SCENE 4 Moon Sides
-
     */
     let scene4 = new PIXI.Container();
 
@@ -274,19 +255,13 @@
     scene4.addChild(moonSides);
 
     /*
-
       End of Scene 4 Moon Sides <<<<<<<<<<<<<<<<
-
     /*
-
     /*
-
     So now we have scenes set up, and the first scene on stage.
-
     The easiest, ugliest way to swap between scenes, would be to assign some code
     to each button to pull the
     current scene off the stage and replace it with another.
-
 */
 
     //
@@ -324,11 +299,8 @@
     };
 
     /*
-
     Tada! We've implemented a crappy version of Powerpoint... *yay*
-
     It would be better if we could build in a nice fade transition, though, right?
-
 */
 
     //Let's call it the Director. It calls the shots.
@@ -468,9 +440,7 @@
     };
 
     /*
-
     Now let's set up our prior scenes with the Director instead.
-
 */
 
     Director.addScene('first', scene1);
