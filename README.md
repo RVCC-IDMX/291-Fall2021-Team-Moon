@@ -13,8 +13,8 @@ https://phazesof-themoon.netlify.app/
 https://docs.google.com/presentation/d/14mDVIcY6FYpL86hEB66Qsb1hHcw1qMZyYbAI_T8Pn38/edit?usp=drivesdk
 
 
-Moon Sides Link: ()https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/2020_6$largeimg_875876648.jpg 
-
+## Moon 🌚 Sides Link 🔗:
+https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/2020_6$largeimg_875876648.jpg 
 
 
 
