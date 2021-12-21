@@ -9,7 +9,7 @@ https://phazesof-themoon.netlify.app/
 
 
 
-## Moon 🌝 Phases Google Doscs Link 🖇️: 
+## Moon 🌝 Phases Google Docs Public Link 🖇️: 
 https://docs.google.com/presentation/d/14mDVIcY6FYpL86hEB66Qsb1hHcw1qMZyYbAI_T8Pn38/edit?usp=drivesdk
 
 
